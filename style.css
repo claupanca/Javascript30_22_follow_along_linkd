@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+nav {
+  margin: 2rem 0;
+}
+
+.navigation {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
