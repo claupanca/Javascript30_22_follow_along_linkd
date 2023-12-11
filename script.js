@@ -6,7 +6,10 @@ console.log(triggers);
 
 // we CREATE THE HIGHLIGHT
 const highlight = document.createElement("span");
-
+highlight.style.display = "inline-block";
+highlight.style.backgroundColor = "white";
+highlight.style.zIndex = -1;
+highlight.style.position = "absolute";
 // we add the class
 highlight.classList.add("highlight");
 
@@ -15,11 +18,8 @@ highlight.classList.add("highlight");
 document.body.append(highlight);
 
 const highlighted = document.querySelector(".highlight");
-console.log(highlighted);
 const initHighlightY = highlighted.getBoundingClientRect().y;
-
-highlighted.style.display = "inline-block";
-highlighted.style.backgroundColor = "white";
+console.log(highlighted);
 
 //listen when the link is hovered
 
