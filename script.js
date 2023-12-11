@@ -14,6 +14,13 @@ highlight.classList.add("highlight");
 // document.querySelector("body").append(highlight);
 document.body.append(highlight);
 
+const highlighted = document.querySelector(".highlight");
+console.log(highlighted);
+const initHighlightY = highlighted.getBoundingClientRect().y;
+
+highlighted.style.display = "inline-block";
+highlighted.style.backgroundColor = "white";
+
 //listen when the link is hovered
 
 function higlhlightLink(e) {
@@ -21,19 +28,28 @@ function higlhlightLink(e) {
 
   // WE NEED TO FIGURE OUT WHERE ON THE PAGE IS THE ELEMENT
   console.log(this.getBoundingClientRect());
-  // const x = this.getBoundingClientRect().x
-  // const y = this.getBoundingClientRect().y
-  let x, y;
-  [x, y] = [this.getBoundingClientRect().x, this.getBoundingClientRect().y];
-  console.log(x, y);
 
-  // transform: translate(275px, -37px);
-  //   display: inline-block;
-  //   width: 10px;
-  //   background-color: white;
-  //   height: 10px;
+  // Set the Transform style to match the Link we hover over
+  let hoverX, hoverY;
+  [hoverX, hoverY] = [
+    this.getBoundingClientRect().x,
+    this.getBoundingClientRect().y,
+  ];
+  // console.log(hoverX, hoverY);
+  const myY = -initHighlightY + hoverY;
+  highlighted.style.transform = `translate(${hoverX - 3}px, ${myY}px)`;
+
+  // Set the height and width of the span to match the Hover over word
+  let hoverWidth, hoverHeight;
+  [hoverWidth, hoverHeight] = [
+    this.getBoundingClientRect().width,
+    this.getBoundingClientRect().height,
+  ];
+  // console.log(hoverWidth, hoverHeight);
+  highlighted.style.width = `${hoverWidth + 6}px`;
+  highlighted.style.height = `${hoverHeight}px`;
 }
 
 triggers.forEach((item) => item.addEventListener("mouseenter", higlhlightLink));
 
-console.log(highlight);
+// console.log(highlight);
